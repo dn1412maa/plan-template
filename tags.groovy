@@ -2,7 +2,7 @@ plan(key:'AWSTAGS2',name:'LambdaCI AWS Tags checking and modifying2') {
   project(key:'HCLC',name:'HipChat Lambda CI')
     repository(name:'tags-repo')
      
-    stage(name:"stage1", description: "stage1", manual: "false"){
+    stage(name:"stage1", description: "stage1", manual: "true"){
         job(name: "job1", key: 'job11Key', description: 'hellojob' ){           
             // checkout --------------------------------------------------------
             task(type:'checkout', description:'checkout 1'){
