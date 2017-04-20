@@ -4,7 +4,6 @@ plan(key:'AWSLEGO',name:'LambdaCI') {
     stage(name:'Default Stage') {
       task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
         repository(name:'ops')
-      }
     }
   }
 }
