@@ -17,6 +17,21 @@ deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
       requirement(key:'os',condition:'equals',value:'Linux')
     }
     task(type:'cleanWorkingDirectory')
+    task(type:'script',description:'Setup venv and create or update stack',
+         scriptBody:'''\
+# Create virtual environment and activate it
+virtualenv venv
+. venv/bin/activate
+
+# Install required packages
+pip install --upgrade pip
+pip install awscli
+
+set -x
+# Stack setup
+echo "Checking if stack lego exists"
+''',
+         interpreter:'LEGACY_SH_BAT')
   }
 
   environment(name:'Deploy AWSLego to PROD') {
