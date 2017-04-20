@@ -40,9 +40,7 @@ plan(key:'AWSTAGS2',name:'LambdaCI AWS Tags checking and modifying2') {
             task(type:'deployBambooPlugin', description:'deploy plugin', url:'http://mybamboo:1990/bamboo',
                 username:'${bamboo.username}', passwordVariable:'${bamboo.password}', artifact:'artifactName')
              
-            task(type:'deployBambooPlugin', description:'deploy plugin2', url:'http://mybamboo:1990/bamboo',
-                username:'${bamboo.username}', passwordVariable:'${bamboo.password}', artifact:'artifactName',
-                runOnBbranch: 'true')           
+      
              
             // make a task final with -> final: 'true' --------------------------------------------------------
             task(type:'deployBambooPlugin', description:'deploy plugin', url:'http://mybamboo:1990/bamboo',
