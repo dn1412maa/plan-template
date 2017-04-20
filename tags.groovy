@@ -2,10 +2,12 @@ plan(key:'AWSLEGO',name:'LambdaCI') {
   project(key:'HCLC',name:'HipChat Lambda CI')
 
     stage(name:'Default Stage') {
-      task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
-        repository(name:'ops')
+      job(key:'JOB1',name:'Build',description:'Build artifacts for AWSLego') {
+        task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
+          repository(name:'ops')
+        }
+      }
     }
-  }
 }
 deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
   versioning(version:'${bamboo.buildResultKey}')
