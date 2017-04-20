@@ -22,9 +22,6 @@ deployment(planKey:"PERSONAL-REST", name: "deploymentTest", description: "a bett
     }
  
     environment(name:"Staging", description:"") {
-        trigger(description:'triggerCron', type:'cron', cronExpression:'8 0 0 ? * *')
-        trigger(description:'triggerAfter1', type:'afterSuccessfulPlan', planKey: 'PERSONAL-REST')
- 
         variable(key:"key1", value:"value1")
         variable(key:"key2", value:"value2")
  
@@ -44,13 +41,6 @@ deployment(planKey:"PERSONAL-REST", name: "deploymentTest", description: "a bett
   
         notification(type:'Deployment Started and Finished', recipient:'email', email:'test@test.com')
         notification(type:'Deployment Finished', recipient:'email', email:'test2@test.com')
-    }
- 
-    environment(name:"QA", description:"") {
-        trigger(description:'triggerAfter', type:'afterSuccessfulPlan', planKey: 'PERSONAL-REST')
-        variable(key:"key3", value:"value3")
- 
-        task(type:'script', description:'task2', script:'test1', argument: 'testArg', environmentVariables: 'one', workingSubDirectory: '/one')
     }
  
     environment(name:"Production", description:"") {
