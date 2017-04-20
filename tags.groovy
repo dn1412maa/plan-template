@@ -4,7 +4,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
     stage(name:'Default Stage') {
       job(key:'JOB1',name:'Build',description:'Build artifacts for AWSLego') {
         task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
-          repository(name:'ops')
+          repository(name:'tags-repo')
         }
       }
     }
