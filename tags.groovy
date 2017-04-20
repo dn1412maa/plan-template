@@ -6,6 +6,12 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
         task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
           repository(name:'tags-repo')
         }
+        task(type: 'script', description: 'Deployment AWS Stack ',
+                    scriptBody : '''
+virtualenv venv
+source venv/bin/activate
+pip install boto3
+''')
       }
     }
 }
