@@ -8,7 +8,6 @@ plan(key:'AWSLEGO',name:'LambdaCI') {
   }
 }
 deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
-  defaultSOXDeployPermissions()
   versioning(version:'${bamboo.buildResultKey}')
 
   environment(name:'Deploy AWSLego to STG') {
@@ -16,7 +15,6 @@ deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
       requirement(key:'os',condition:'equals',value:'Linux')
     }
     task(type:'cleanWorkingDirectory')
-
   }
 
   environment(name:'Deploy AWSLego to PROD') {
@@ -24,6 +22,5 @@ deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
       requirement(key:'os',condition:'equals',value:'Linux')
     }
     task(type:'cleanWorkingDirectory')
-
   }
 }
