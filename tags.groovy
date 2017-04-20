@@ -30,8 +30,7 @@ pip install awscli
 set -x
 # Stack setup
 echo "Checking if stack lego exists"
-''',
-         interpreter:'LEGACY_SH_BAT')
+''')
   }
 
   environment(name:'Deploy AWSLego to PROD') {
