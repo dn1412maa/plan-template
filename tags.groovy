@@ -1,4 +1,4 @@
-plan(key:'AWSTAGS',name:'AwsTagsLambdaCI') {
+plan(key:'AWSTAGS',name:'LambdaCI AWS tags checking and modifying') {
   project(key:'HCLC',name:'HipChat Lambda CI')
 
     stage(name:'Default Stage') {
