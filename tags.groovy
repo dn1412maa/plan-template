@@ -1,4 +1,4 @@
-plan(key:'AWSLEGO',name:'LambdaCI') {
+plan(key:'AWSTAGS',name:'AwsTagsLambdaCI') {
   project(key:'HCLC',name:'HipChat Lambda CI')
 
     stage(name:'Default Stage') {
