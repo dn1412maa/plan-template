@@ -47,8 +47,9 @@ awstagsUpdateLambdaFunctions(['environment']) {
 virtualenv venv     
 . venv/bin/activate
 ls -la
-export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#environment.aws.access_key}
-export AWS_SECRET_ACCESS_KEY=${bamboo.hc.awslego.#environment.aws.password}
-export AWS_DEFAULT_REGION=${bamboo.hc.awslego.#environment.aws.region}
+export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#environment_aws_access_key}
+export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#environment_aws_password}
+export AWS_DEFAULT_REGION=${bamboo_hc_awslego_#environment_aws_region}
+zip -r lambda.zip *
 ''')
 }
