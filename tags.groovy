@@ -23,7 +23,7 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
       #pip install awscli
       
       set -x
-      export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#environment.env}
+      export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.stg.env}
       export AWS_SECRET_ACCESS_KEY=123
       export AWS_DEFAULT_REGION=123
       sed --help
