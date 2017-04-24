@@ -19,8 +19,8 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
      . venv/bin/activate
 
       # Install required packages
-      pip install --upgrade pip
-      pip install awscli
+      #pip install --upgrade pip
+      #pip install awscli
       
       set -x
       export AWS_ACCESS_KEY_ID=${bamboo.hc.awstags.#environment.aws.access_key}
