@@ -10,7 +10,7 @@ virtualenv venv
 
 # Install required packages
 pip install nose
-python setup.py install
+#python setup.py install
 
 # AWS_DEFAULT_REGION variable required for tests
 export AWS_DEFAULT_REGION=us-east-1
