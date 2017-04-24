@@ -7,7 +7,6 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
   stage(name:'Default Stage') {
     job(key:'JOB1',name:'Build',description:'Build artifacts for AWSTags') {
      awstagsRunTests()
-     task(type:'jUnitParser',description:'Parse test results',resultsDirectory:'**/nosetests.xml')
     }
   }
 }
