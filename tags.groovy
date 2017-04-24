@@ -10,17 +10,17 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
   }
 }
 
-deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSTAGS') {
+deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
 
-  environment(name:'Deploy AWSLego to STG') {
-    task(type: 'script', description: 'Deployment AWS Stack ',
+  environment(name:'Update AWSTags to STG') {
+    task(type: 'script', description: 'Update AWS Lambda ',
      scriptBody : '''
      virtualenv venv
      ''')
   }
 
-  environment(name:'Deploy AWSLego to PROD') {
-    task(type: 'script', description: 'Deployment AWS Stack ',
+  environment(name:'Update AWSTags to PROD') {
+    task(type: 'script', description: 'Update AWS Lambda ',
          scriptBody : '''
          virtualenv venv
          ''')
