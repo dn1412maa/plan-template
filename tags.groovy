@@ -4,8 +4,7 @@
 plan(key:'PLANTEST', name:'Testing plan templates', description:'A sensible description goes here. Dont edit the plan!') {
  
     // it's a good idea to mark
-    label(name:"plan-templates")
-     
+    
     // your default repository. You can add more than one.
     repository(name:'tags-repo')
  
