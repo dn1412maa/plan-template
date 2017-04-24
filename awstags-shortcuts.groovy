@@ -24,8 +24,6 @@ awstagsUpdateLambdaVariables(['environment']){
   task(type:'script',description:'Update variables in lambda functions',
      scriptBody:'''
 # Update variables for lambda function
-ll
-#cd lambda/LambdaTagChecker/
       sed -i -e "s/<HC_ROOM_ID>/${bamboo_hc_awstags_#environment_hc_room_id}/g" config.yml
       sed -i -e "s/<HC_AUTH_TOKEN>/${bamboo_hc_awstags_#environment_hc_auth_token}/g" config.yml
       sed -i -e "s/<BUCKET_NAME>/${bamboo_hc_awstags_#environment_bucket_name}/g" config.yml
