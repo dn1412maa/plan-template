@@ -13,6 +13,9 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
 deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
 
   environment(name:'Update AWSTags lambda functions to STG') {
+    task(type:'checkout',description:'Code') {
+         repository(name:'tags-repo')
+      }
     task(type: 'script', description: 'Update AWS Lambda functions',
      scriptBody : '''
      virtualenv venv
