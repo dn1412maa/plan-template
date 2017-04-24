@@ -29,8 +29,8 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
       export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_stg_aws_access_key}
       export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_stg_aws_password}
       export AWS_DEFAULT_REGION=${bamboo_hc_awslego_stg_aws_region}
-
-      sed --help
+      sed -i -e "s/<HC_ROOM_ID>/${bamboo_hc_awslego_stg_aws_region}/g" config.yml
+      cat config.yml
      ''')
   }
 
