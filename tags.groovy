@@ -7,6 +7,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
   stage(name:'Default Stage') {
     job(key:'JOB1',name:'Build',description:'Build artifacts for AWSTags') {
     artifactDefinition(name:'LambdaTagChecker',location:'lambda/LambdaTagChecker',pattern:'**',shared:'true')
+    artifactDefinition(name:'LambdaTagModification',location:'lambda/LambdaTagModification',pattern:'**',shared:'true')
     task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
       repository(name:'tags-repo')
     }      
