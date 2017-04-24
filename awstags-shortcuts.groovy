@@ -16,8 +16,7 @@ python setup.py install
 export AWS_DEFAULT_REGION=us-east-1
 
 # Run awstags tests
-cd tests
-python ../setup.py nosetests --with-xunit
+# python ../setup.py nosetests --with-xunit
 ''')
 }
 
