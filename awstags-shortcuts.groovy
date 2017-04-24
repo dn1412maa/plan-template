@@ -33,3 +33,9 @@ cd lambda/LambdaTagChecker/
 
 ''')
 }
+
+awstagsArtifactDownload(){
+  task(type:'artifactDownload',description:'Download release contents',planKey:'HCLC-AWSTAGS') {
+    artifact(name:'lambda-tags_checker.py',localPath:'.')
+  }
+}
