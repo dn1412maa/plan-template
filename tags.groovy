@@ -12,15 +12,15 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
 
 deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
 
-  environment(name:'Update AWSTags to STG') {
-    task(type: 'script', description: 'Update AWS Lambda ',
+  environment(name:'Update AWSTag lambda functions to STG') {
+    task(type: 'script', description: 'Update AWS Lambda functions',
      scriptBody : '''
      virtualenv venv
      ''')
   }
 
-  environment(name:'Update AWSTags to PROD') {
-    task(type: 'script', description: 'Update AWS Lambda ',
+  environment(name:'Update AWSTag lambda functions to PROD') {
+    task(type: 'script', description: 'Update AWS Lambda functions ',
          scriptBody : '''
          virtualenv venv
          ''')
