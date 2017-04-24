@@ -13,7 +13,6 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
 deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSTAGS') {
 
   environment(name:'Deploy AWSLego to STG') {
-    task(type:'addRequirement',description:'Linux Agent') 
     task(type: 'script', description: 'Deployment AWS Stack ',
      scriptBody : '''
      virtualenv venv
@@ -21,7 +20,6 @@ deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSTAGS') {
   }
 
   environment(name:'Deploy AWSLego to PROD') {
-    task(type:'addRequirement',description:'Linux Agent') 
     task(type: 'script', description: 'Deployment AWS Stack ',
          scriptBody : '''
          virtualenv venv
