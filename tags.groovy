@@ -1,7 +1,7 @@
 // this is a comment :)
 // It will create or update a plan.
 // If you deleted the plan, wait a few minutes because deletion is asynchronous in bamboo
-plan(key:'PLANTEST', name:'Testing plan templates', description:'A sensible description goes here. Don't edit the plan!') {
+plan(key:'PLANTEST', name:'Testing plan templates', description:'A sensible description goes here. Dont edit the plan!') {
  
     // it's a good idea to mark
     label(name:"plan-templates")
