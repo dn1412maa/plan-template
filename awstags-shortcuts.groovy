@@ -60,7 +60,7 @@ zip -jr lambda_tagmodification.zip LambdaTagModification
 cd LambdaTagChecker
 zip -r ../lambda_tagchecker.zip *
 
-aws lambda update-function-code --function-name ${bamboo_hc_awslego_#environment_lambda_name_checker} --zip-file fileb://lambda_tagchecker.zip
+aws lambda update-function-code --function-name ${bamboo_hc_awslego_#environment_lambda_name_checker} --zip-file fileb://../lambda_tagchecker.zip
 
 ''')
 }
