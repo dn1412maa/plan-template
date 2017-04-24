@@ -44,6 +44,7 @@ awstagsArtifactDownload(){
 awstagsUpdateLambdaFunctions(['environment']) {
   task(type:'script',description:'Update functions',
      scriptBody:'''
+virtualenv venv     
 . venv/bin/activate
 ls -la
 export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#environment.aws.access_key}
