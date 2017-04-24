@@ -31,6 +31,7 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
       export AWS_DEFAULT_REGION=${bamboo_hc_awslego_stg_aws_region}
       sed -i -e "s/<HC_ROOM_ID>/${bamboo_hc_awslego_stg_aws_region}/g" config.yml
       cat config.yml
+      zip -r lambda.zip *
      ''')
   }
 
