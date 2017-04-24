@@ -10,7 +10,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
   }
 }
 
-deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSLEGO') {
+deployment(name:'AWSLego CI deployment',planKey:'HCLC-AWSTAGS') {
 
   environment(name:'Deploy AWSLego to STG') {
     task(type:'addRequirement',description:'Linux Agent') {
