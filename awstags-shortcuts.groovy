@@ -46,7 +46,12 @@ awstagsUpdateLambdaFunctions(['environment']) {
      scriptBody:'''
 virtualenv venv     
 . venv/bin/activate
-ls -la
+
+# Install required packages
+pip install --upgrade pip
+pip install awscli
+
+set -x
 export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#environment_aws_access_key}
 export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#environment_aws_password}
 export AWS_DEFAULT_REGION=${bamboo_hc_awslego_#environment_aws_region}
