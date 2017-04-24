@@ -2,7 +2,7 @@ awstagsRunTests(){
   task(type:'script',description:'Setup awstags and Run tests',
      scriptBody:'''
 # Change current directory
-cd lambda/LambdaTagChecker/tests
+# cd lambda/LambdaTagChecker/tests
 
 # Create virtual environment and activate it
 virtualenv venv
