@@ -39,3 +39,15 @@ awstagsArtifactDownload(){
     artifact(name:'lambda-tags_checker.py',localPath:'.')
   }
 }
+
+
+awstagsUpdateLambdaFunctions(['environment']) {
+  task(type:'script',description:'Update functions',
+     scriptBody:'''
+. venv/bin/activate
+ls -la
+export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#environment.aws.access_key}
+export AWS_SECRET_ACCESS_KEY=${bamboo.hc.awslego.#environment.aws.password}
+export AWS_DEFAULT_REGION=${bamboo.hc.awslego.#environment.aws.region}
+''')
+}
