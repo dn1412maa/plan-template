@@ -50,6 +50,8 @@ ls -la
 export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#environment_aws_access_key}
 export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#environment_aws_password}
 export AWS_DEFAULT_REGION=${bamboo_hc_awslego_#environment_aws_region}
-zip -r lambda.zip *
+
+zip -r lambda_tagchecker.zip LambdaTagChecker/*
+zip -r lambda_tagmodification.zip LambdaTagModification/*
 ''')
 }
