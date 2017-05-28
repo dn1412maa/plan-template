@@ -21,7 +21,7 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
   environment(name:'Update AWSTags lambda functions to STG') {
     awstagsArtifactDownload()
     awstagsUpdateLambdaVariables(environment:'stg')
-    awstagsUpdateLambdaFunctions(environment:'stg', aws_access_key_name: 'asd.ACC', aws_secret_key_name:'asd.SEC')
+    awstagsUpdateLambdaFunctions(environment:'stg', aws_access_key_name: 'asd.ACC.access_key', aws_secret_key_name:'asd.SEC')
   }
 
   environment(name:'Update AWSTags lambda functions to PROD') {
