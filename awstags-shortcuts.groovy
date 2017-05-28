@@ -41,7 +41,7 @@ awstagsArtifactDownload(){
 }
 
 
-awstagsUpdateLambdaFunctions(['environment']) {
+awstagsUpdateLambdaFunctions(['environment', 'aws_access_key_name', 'aws_secret_key_name']) {
   task(type:'script',description:'Update functions',
      scriptBody:'''
 virtualenv venv     
@@ -52,15 +52,16 @@ pip install --upgrade pip
 pip install awscli
 
 set -x
-export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#environment_aws_access_key}
-export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#environment_aws_password}
+export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#aws_access_key_name}
+export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#aws_secret_key_name}
 export AWS_DEFAULT_REGION=${bamboo_hc_awslego_#environment_aws_region}
 
+echo $AWS_ACCESS_KEY_ID
 zip -jr lambda_tagmodification.zip LambdaTagModification
 cd LambdaTagChecker
 zip -r ../lambda_tagchecker.zip *
 
-aws lambda update-function-code --function-name ${bamboo_hc_awslego_#environment_lambda_name_checker} --zip-file fileb://../lambda_tagchecker.zip
+#aws lambda update-function-code --function-name ${bamboo_hc_awslego_#environment_lambda_name_checker} --zip-file fileb://../lambda_tagchecker.zip
 
 ''')
 }
