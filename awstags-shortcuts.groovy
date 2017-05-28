@@ -51,10 +51,10 @@ awstagsUpdateLambdaFunctions(['environment', 'aws_access_key_name', 'aws_secret_
 #pip install --upgrade pip
 #pip install awscli
 
-set -x
+# set -x
 export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#aws_access_key_name}
-export AWS_SECRET_ACCESS_KEY=${bamboo.hc.awslego.#aws_secret_key_name}
-export AWS_DEFAULT_REGION=${bamboo.hc.awslego.#environment.aws.region}
+# export AWS_SECRET_ACCESS_KEY=${bamboo.hc.awslego.#aws_secret_key_name}
+# export AWS_DEFAULT_REGION=${bamboo.hc.awslego.#environment.aws.region}
 
 echo $AWS_ACCESS_KEY_ID
 #zip -jr lambda_tagmodification.zip LambdaTagModification
