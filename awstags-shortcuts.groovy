@@ -52,9 +52,9 @@ pip install --upgrade pip
 pip install awscli
 
 set -x
-export AWS_ACCESS_KEY_ID=${bamboo_hc_awslego_#aws_access_key_name}
-export AWS_SECRET_ACCESS_KEY=${bamboo_hc_awslego_#aws_secret_key_name}
-export AWS_DEFAULT_REGION=${bamboo_hc_awslego_#environment_aws_region}
+export AWS_ACCESS_KEY_ID=${bamboo.hc.awslego.#aws_access_key_name}
+export AWS_SECRET_ACCESS_KEY=${bamboo.hc.awslego.#aws_secret_key_name}
+export AWS_DEFAULT_REGION=${bamboo.hc.awslego.#environment.aws.region}
 
 echo $AWS_ACCESS_KEY_ID
 zip -jr lambda_tagmodification.zip LambdaTagModification
