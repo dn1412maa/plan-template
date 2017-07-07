@@ -12,18 +12,18 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
       repository(name:'tags-repo')
     }      
    
-                 task(type:'awsS3',description:'Upload webcore to s3',pluginVersionOnSave:'2.10.5',
+                 task(type:'awsS3',description:'Upload  to s3',pluginVersionOnSave:'2.10.5',
                 resourceAction:'Upload',pluginConfigVersionOnSave:'6',
-                targetBucketName:'hipchat-ops',artifactToUpload:'LOCAL_FILES',
+                targetBucketName:'ops',artifactToUpload:'LOCAL_FILES',
                 metadataConfigurationJson:'''\
 {
     "x-amz-acl": "public-read"
 }\
 ''',
-                secretKey:'${bamboo.hipchat.aws.hipchat_ops.secret_key.password}',sourceLocalPath:'web-client-*.zip',
-                resourceRegion:'us-east-1',accessKey:'${bamboo.hipchat.aws.hipchat_ops.access_key}',
+                secretKey:'${bamboo.secret_key.password}',sourceLocalPath:'web-client-*.zip',
+                resourceRegion:'us-east-1',accessKey:'${bamboo.access_key}',
                 awsCredentialsSource:'INLINE',awsConnectorId:'-1',
-                targetObjectKey:'hipchat4/webpackages/internal/')
+                targetObjectKey:'h/webpackages/internal/')
       
      awstagsRunTests()
     }
