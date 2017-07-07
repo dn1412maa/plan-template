@@ -22,6 +22,18 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
     awstagsArtifactDownload()
     awstagsUpdateLambdaVariables(environment:'stg')
     awstagsUpdateLambdaFunctions(environment:'stg', aws_access_key_name: 'asd.ACC.access_key', aws_secret_key_name:'asd.SEC')
+           task(type:'awsS3',description:'Upload webcore to s3',pluginVersionOnSave:'2.10.5',
+                resourceAction:'Upload',pluginConfigVersionOnSave:'6',
+                targetBucketName:'hipchat-ops',artifactToUpload:'LOCAL_FILES',
+                metadataConfigurationJson:'''\
+{
+    "x-amz-acl": "public-read"
+}\
+''',
+                secretKey:'${bamboo.hipchat.aws.hipchat_ops.secret_key.password}',sourceLocalPath:'web-client-*.zip',
+                resourceRegion:'us-east-1',accessKey:'${bamboo.hipchat.aws.hipchat_ops.access_key}',
+                awsCredentialsSource:'INLINE',awsConnectorId:'-1',
+                targetObjectKey:'hipchat4/webpackages/internal/')
   }
 
   environment(name:'Update AWSTags lambda functions to PROD') {
