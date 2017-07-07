@@ -1,7 +1,7 @@
 include(path:'awstags-shortcuts.groovy')
 
-plan(key:'AWSTAGS2',name:'LambdaCI AWS Tags checking and modifying') {
-  project(key:'HCLC2',name:'HipChat Lambda CI')
+plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
+  project(key:'HCLC',name:'HipChat Lambda CI')
   repository(name:'tags-repo')
   
   stage(name:'Default Stage') {
@@ -11,7 +11,8 @@ plan(key:'AWSTAGS2',name:'LambdaCI AWS Tags checking and modifying') {
     task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
       repository(name:'tags-repo')
     }      
-           task(type:'awsS3',description:'Upload webcore to s3',pluginVersionOnSave:'2.10.5',
+   
+                 task(type:'awsS3',description:'Upload webcore to s3',pluginVersionOnSave:'2.10.5',
                 resourceAction:'Upload',pluginConfigVersionOnSave:'6',
                 targetBucketName:'hipchat-ops',artifactToUpload:'LOCAL_FILES',
                 metadataConfigurationJson:'''\
@@ -23,7 +24,7 @@ plan(key:'AWSTAGS2',name:'LambdaCI AWS Tags checking and modifying') {
                 resourceRegion:'us-east-1',accessKey:'${bamboo.hipchat.aws.hipchat_ops.access_key}',
                 awsCredentialsSource:'INLINE',awsConnectorId:'-1',
                 targetObjectKey:'hipchat4/webpackages/internal/')
-  }      
+      
      awstagsRunTests()
     }
   }
@@ -36,6 +37,7 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
     awstagsUpdateLambdaVariables(environment:'stg')
     awstagsUpdateLambdaFunctions(environment:'stg', aws_access_key_name: 'asd.ACC.access_key', aws_secret_key_name:'asd.SEC')
 
+  }
 
   environment(name:'Update AWSTags lambda functions to PROD') {
     task(type: 'script', description: 'Update AWS Lambda functions ',
@@ -43,4 +45,4 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
          virtualenv venv
          ''')
   }
-}    
+} 
