@@ -20,6 +20,12 @@ export AWS_DEFAULT_REGION=us-east-1
 ''')
 }
 
+getAwsCred(){
+ export AWS=111111
+ export AWS_KEY=22222
+}
+
+
 awstagsUpdateLambdaVariables(['environment']){
   task(type:'script',description:'Update variables in lambda functions',
      scriptBody:'''
