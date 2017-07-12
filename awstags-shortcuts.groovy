@@ -22,8 +22,10 @@ printenv
 }
 
 getAwsCred(){
+  task(type:'script',description:'build',scriptBody:'''
  export AWS=111111
  export AWS_KEY=22222
+ ''')
 }
 
 
