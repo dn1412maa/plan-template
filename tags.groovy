@@ -40,7 +40,7 @@ deployment(name:'AWSTags CI deployment',planKey:'HCLC-AWSTAGS') {
   }
 
   environment(name:'Update AWSTags lambda functions to PROD') {
-    getAwsCred()
+
     task(type: 'script', description: 'Update AWS Lambda functions ',
          scriptBody : '''
          virtualenv venv
