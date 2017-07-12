@@ -17,6 +17,7 @@ export AWS_DEFAULT_REGION=us-east-1
 
 # Run awstags tests
 # python ../setup.py nosetests --with-xunit
+printenv
 ''')
 }
 
