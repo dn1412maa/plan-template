@@ -12,19 +12,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
       repository(name:'tags-repo')
     }      
    
-                 task(type:'awsS3',description:'Upload  to s3',pluginVersionOnSave:'2.10.5',
-                resourceAction:'Upload',pluginConfigVersionOnSave:'6',
-                targetBucketName:'ops',artifactToUpload:'LOCAL_FILES',
-                metadataConfigurationJson:'''\
-{
-    "x-amz-acl": "public-read"
-}\
-''',
-                secretKey:'${bamboo.secret_key.password}',sourceLocalPath:'web-client-*.zip',
-                resourceRegion:'us-east-1',accessKey:'${bamboo.access_key}',
-                awsCredentialsSource:'INLINE',awsConnectorId:'-1',
-                targetObjectKey:'h/webpackages/internal/')
-      
+     getAwsCred()
      awstagsRunTests()
     }
   }
