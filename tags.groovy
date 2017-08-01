@@ -17,6 +17,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
 
 export_vars()
 echo $AWS_DEFAULT_REGION
+echo $AWS_ACCESS_KEY_ID
 ''')
      
     }
