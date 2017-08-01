@@ -15,19 +15,8 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
          task(type: 'script',description:'Upload web-client-native.zip to s3',
           scriptBody:'''\
 
-#Env vars for the aws cli
-role_arn=${bamboo.hipchat.aws.stg.role}
-session_uuid=$(/usr/bin/uuidgen)
-creds=$(aws sts assume-role \
-        --role-arn "$role_arn" \
-        --role-session-name "$session_uuid"
-    )
-export AWS_DEFAULT_REGION=us-east-1
-export AWS_ACCESS_KEY_ID="$(echo $creds | jq -r .Credentials.AccessKeyId)"
-export AWS_SECRET_ACCESS_KEY="$(echo $creds | jq -r .Credentials.SecretAccessKey)"
-export AWS_SESSION_TOKEN="$(echo $creds | jq -r .Credentials.SessionToken)"
-
-aws s3 cp web-client-native.zip s3://hipchat-ops/hipchat4/webpackages/nightly/web-client-native.zip --acl public-read
+export_vars()
+echo $AWS_DEFAULT_REGION
 ''')
      
     }
