@@ -12,7 +12,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
       repository(name:'tags-repo')
     }      
    
-         task(type:'awsS3',description:'Upload web-client-native.zip to s3',
+         task(type: 'script',description:'Upload web-client-native.zip to s3',
           scriptBody:'''\
 
 #Env vars for the aws cli
