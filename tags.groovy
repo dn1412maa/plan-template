@@ -8,6 +8,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
     job(key:'JOB1',name:'Build',description:'Build artifacts for AWSTags') {
     artifactDefinition(name:'LambdaTagChecker',location:'lambda/LambdaTagChecker',pattern:'**',shared:'true')
     artifactDefinition(name:'LambdaTagModification',location:'lambda/LambdaTagModification',pattern:'**',shared:'true')
+    getAwsCred()
     task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
       repository(name:'tags-repo')
     }      
@@ -15,7 +16,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
          task(type: 'script',description:'Upload web-client-native.zip to s3',
           scriptBody:'''\
 
-getAwsCred
+getAwsCred()
 echo $AWS
 echo $AWS_KEY
 ''')
