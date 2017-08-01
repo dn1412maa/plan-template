@@ -1,3 +1,9 @@
+export_vars() {
+#Env vars for the aws cli
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_ACCESS_KEY_ID="111111111"
+}
+
 awstagsRunTests(){
   task(type:'script',description:'Setup awstags and Run tests',
      scriptBody:'''
