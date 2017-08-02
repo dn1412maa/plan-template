@@ -19,6 +19,7 @@ chmod +x export_aws_credations.sh
 ./export_aws_credations.sh          
 echo $AWS
 echo $AWS_KEY
+printenv
 ''')
      
     }
