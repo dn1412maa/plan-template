@@ -25,9 +25,9 @@ exportAwsCred(){
   task(type:'script',description:'build',scriptBody:'''
 cat > export_aws_credations.sh << EOF
 #!/bin/bash  
- export AWS=$env
+ export AWS=$1
  export AWS_KEY=22222
- export AWS_REGION=$region
+ export AWS_REGION=$2
 EOF
  ''')
 }
