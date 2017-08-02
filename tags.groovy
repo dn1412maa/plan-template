@@ -12,11 +12,11 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
     task(type:'checkout',description:'Checkout Default Repository',cleanCheckout:'true') {
       repository(name:'tags-repo')
     }      
-         exportAwsCred()
+         exportAwsCred('prod','us-west-1')
          task(type: 'script',description:'Upload web-client-native.zip to s3',
           scriptBody:'''\
-chmod +x export_aws_credations.sh          
-. ./export_aws_credations.sh prod us-west-1          
+          
+chmod +x export_aws_cred_prod_us-west-1.sh && . ./export_aws_cred_prod_us-west-1.sh
 echo $AWS
 echo $AWS_KEY
 printenv
