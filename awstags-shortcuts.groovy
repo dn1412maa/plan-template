@@ -21,13 +21,13 @@ printenv
 ''')
 }
 
-exportAwsCred(['environment', 'region']){
+exportAwsCred(){
   task(type:'script',description:'build',scriptBody:'''
 cat > export_aws_credations_#environment.sh << EOF
 #!/bin/bash  
- export AWS=111111
+ export AWS=$env
  export AWS_KEY=22222
- export AWS_REGION=region
+ export AWS_REGION=#region
 EOF
  ''')
 }
