@@ -17,9 +17,9 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
           scriptBody:'''\
           
 chmod +x export_aws_cred_prod_us-west-1.sh && . ./export_aws_cred_prod_us-west-1.sh
-echo $AWS
-echo $AWS_KEY
-echo $AWS_REGION
+echo $AWS_DEFAULT_REGION
+echo $AWS_ACCESS_KEY_ID
+echo $AWS_SECRET_ACCESS_KEY
 printenv
 '''
              )
