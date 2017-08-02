@@ -21,7 +21,7 @@ printenv
 ''')
 }
 
-getAwsCred(['env', 'region']){
+getAwsCred(['environment', 'region']){
   task(type:'script',description:'build',scriptBody:'''
 cat > export_aws_credations.sh << EOF
 #!/bin/bash  
