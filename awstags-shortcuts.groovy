@@ -25,7 +25,7 @@ printenv
   task(type:'script',description:'build',scriptBody:'''
 echo #environment
 echo "==================="
-cat > export_aws_credations.sh << EOF
+cat > export_aws_cred_#environment_#region.sh << EOF
 #!/bin/bash  
  export AWS=#environment
  export AWS_KEY=22222
