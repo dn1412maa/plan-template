@@ -23,7 +23,7 @@ printenv
 
 exportAwsCred(){
   task(type:'script',description:'build',scriptBody:'''
-cat > export_aws_credations_#environment.sh << EOF
+cat > export_aws_credations.sh << EOF
 #!/bin/bash  
  export AWS=$env
  export AWS_KEY=22222
