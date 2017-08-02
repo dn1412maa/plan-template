@@ -22,7 +22,7 @@ printenv
 }
 
    exportAwsCred(['environment', 'region']){
-  task(type:'script',description:'created aws credentials file',scriptBody:'''
+  task(type:'script',description:'Creating aws credentials file',scriptBody:'''
 #Env vars for the aws cli
 role_arn=${bamboo.hipchat.aws.#environment.role}
 session_uuid=$(/usr/bin/uuidgen)
