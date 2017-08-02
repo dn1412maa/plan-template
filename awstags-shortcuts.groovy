@@ -22,14 +22,20 @@ printenv
 }
 
    exportAwsCred(['environment', 'region']){
-  task(type:'script',description:'build',scriptBody:'''
-echo #environment
-echo "==================="
+  task(type:'script',description:'created aws credentials file',scriptBody:'''
+#Env vars for the aws cli
+role_arn=${bamboo.hipchat.aws.#environment.role}
+session_uuid=$(/usr/bin/uuidgen)
+creds=AccessKeyId
+creds2=AccessKeyId2
+creds3=AccessKeyId3
+  
 cat > export_aws_cred_#environment_#region.sh << EOF
 #!/bin/bash  
- export AWS=#environment
- export AWS_KEY=22222
- export AWS_REGION=#region
+export AWS_DEFAULT_REGION=#region
+export AWS_ACCESS_KEY_ID="$(echo $creds)"
+export AWS_SECRET_ACCESS_KEY="$(echo $creds2)"
+export AWS_SESSION_TOKEN="$(echo $creds3)"
 EOF
  ''')
 }
