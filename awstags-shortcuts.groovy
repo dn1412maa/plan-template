@@ -27,7 +27,7 @@ cat > export_aws_credations.sh << EOF
 #!/bin/bash  
  export AWS=111111
  export AWS_KEY=22222
- export AWS_REGION = region
+ export AWS_REGION=region
 EOF
  ''')
 }
