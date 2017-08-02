@@ -33,7 +33,7 @@ creds3=AccessKeyId3
 cat > export_aws_cred_#environment_#region.sh << EOF
 #!/bin/bash  
 export AWS_DEFAULT_REGION=#region
-export AWS_ACCESS_KEY_ID="$(echo $creds)"
+export AWS_ACCESS_KEY_ID="$creds"
 export AWS_SECRET_ACCESS_KEY="$(echo $creds2)"
 export AWS_SESSION_TOKEN="$(echo $creds3)"
 EOF
