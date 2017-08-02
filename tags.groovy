@@ -16,7 +16,7 @@ plan(key:'AWSTAGS',name:'LambdaCI AWS Tags checking and modifying') {
          task(type: 'script',description:'Upload web-client-native.zip to s3',
           scriptBody:'''\
 chmod +x export_aws_credations.sh          
-. ./export_aws_credations.sh -env=prod -region=us-west-1          
+. ./export_aws_credations.sh prod us-west-1          
 echo $AWS
 echo $AWS_KEY
 printenv
